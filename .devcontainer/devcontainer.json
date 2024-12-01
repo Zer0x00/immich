@@ -46,6 +46,6 @@
   "initializeCommand": "bash .devcontainer/scripts/initializeCommand.sh",
   "onCreateCommand": "bash .devcontainer/scripts/onCreateCommand.sh",
   "overrideCommand": true,
-  "workspaceFolder": "/immich",
+  "workspaceFolder": "/workspaces/immich",
   "remoteUser": "node"
 }

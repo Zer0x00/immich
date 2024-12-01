@@ -3,7 +3,8 @@
   "service": "immich-devcontainer",
   "dockerComposeFile": [
     "docker-compose.yml",
-    "../docker/docker-compose.dev.yml"
+    "../docker/docker-compose.dev.yml",
+    "docker-compose.override.yml"
   ],
   "customizations": {
     "vscode": {

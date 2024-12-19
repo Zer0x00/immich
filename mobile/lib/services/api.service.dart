@@ -67,7 +67,7 @@ class ApiService implements Authentication {
   }
 
   Future<String> resolveAndSetEndpoint(String serverUrl) async {
-    final endpoint = await _resolveEndpoint(serverUrl);
+    final endpoint = await resolveEndpoint(serverUrl);
     setEndpoint(endpoint);
 
     // Save in local database for next startup
@@ -82,7 +82,7 @@ class ApiService implements Authentication {
   ///  host   - required
   ///  port   - optional (default: based on schema)
   ///  path   - optional
-  Future<String> _resolveEndpoint(String serverUrl) async {
+  Future<String> resolveEndpoint(String serverUrl) async {
     final url = sanitizeUrl(serverUrl);
 
     if (!await _isEndpointAvailable(serverUrl)) {
@@ -104,7 +104,7 @@ class ApiService implements Authentication {
 
     try {
       await setEndpoint(serverUrl);
-      await serverInfoApi.pingServer().timeout(Duration(seconds: 5));
+      await serverInfoApi.pingServer().timeout(const Duration(seconds: 5));
     } on TimeoutException catch (_) {
       return false;
     } on SocketException catch (_) {
